@@ -22,14 +22,14 @@ end
 
 
 post '/age' do #create url /age
-	age = params[:age]
+	age = params[:user_age]
 	name = params[:auser_name] 
 	#"greeeat! name #{name} and you are #{age}" #get name from params
-	redirect '/fav?auser_name=' + name + "&age=" + age
+	redirect '/fav?auser_name=' + name + "&user_age=" + age
 end
 
 get '/fav' do
-	age = params[:age]
+	age = params[:user_age]
 	name = params[:auser_name]
 	
 	#fav = params[:user_fav]
@@ -39,15 +39,19 @@ end
 
 post '/fav' do
 	name = params[:auser_name]
-	age = params[:age].to_i
+	age = params[:user_age]
 	fav1 = params[:fav_one].to_i
 	fav2 = params[:fav_two].to_i
 	fav3 = params[:fav_three].to_i
 	sum = addition(fav1,fav2,fav3) 
 
-	"greeeat! #{age} and you are #{fav1},#{fav2},#{fav3} is equal to #{sum} "
+	#"greeeat! #{age} and you are #{fav1},#{fav2},#{fav3} is equal to #{sum} "
+	
+	"your age #{age} is Greater than #{sum} the sum of your favorite numbers are: #{fav1},#{fav2},#{fav3}" if age.to_i >= sum.to_i
+	
 
-	#puts "Greater than" if age > sum
+	#{}"your age #{age} is Less than #{sum} the sum of your favorite numbers are: #{fav1},#{fav2},#{fav3}" if age.to_i < sum.to_i
+	
 #<input type = "text" name = "total" value = <%= total %>>
 end
 
