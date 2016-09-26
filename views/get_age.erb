@@ -1,5 +1,10 @@
 
 
-	Hello CRW!
-	WHat is your age? my age is <%= uname %>
+	Hello <%= name %>! 
+	What is your age? 
 
+<form method = "post" action = "/age">
+		<input type = "text" name = "auser_name" value = <%= name %>>
+		<input type = "number" name = "auser_age">
+		<input type = "submit">
+</form>
